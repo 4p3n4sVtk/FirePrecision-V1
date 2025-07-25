@@ -1,4 +1,4 @@
-# PrecisionGrabber-V2
+# FirePrecision-V1
 ## :warning: Alerta legais
 
 Este projeto foi desenvolvido com fins educacionais e deve ser utilizado **apenas por pessoas que possuem pleno conhecimento das implicações legais e éticas de seus atos**. O uso inadequado deste software pode acarretar em consequências legais, e a responsabilidade pelo uso é inteiramente do usuário. A utilização deste projeto é estritamente restrita a **ambientes controlados e para fins de utilidade legal, como investigações digitais autorizadas**.
@@ -17,7 +17,7 @@ Este projeto foi desenvolvido com fins educacionais e deve ser utilizado **apena
 
 1. Clone o repositório:
 ```bash
- git clone https://github.com/4p3n4sVtk/PrecisionGrabber-V2.git
+ git clone https://github.com/4p3n4sVtk/FirePrecision-V1.git
  cd FirePrecision-V1
 ```
 
