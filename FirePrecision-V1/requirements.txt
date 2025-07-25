@@ -1,0 +1,12 @@
+# Backend e Servidor
+flask>=2.0.1                  # Framework web
+flask-cors>=3.0.10            # Permite requisições entre domínios
+python-dotenv>=0.19.0         # Carrega variáveis do .env
+pyngrok>=5.0.0                # Túnel Ngrok
+gunicorn>=20.1.0              # Servidor WSGI (opcional para produção)
+
+# Interface e Utilitários
+colorama>=0.4.4               # Cores no terminal
+requests>=2.26.0              # Requisições HTTP (para APIs extras)
+selenium>=4.0.0               # Automação web (caso use captura de screenshots)
+html2canvas>=0.1.0            # Geração de screenshots via JS (opcional)
