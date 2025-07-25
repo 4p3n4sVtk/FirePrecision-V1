@@ -39,5 +39,10 @@ pip install -r requirements.txt
 pip list # verifica as dependencias
 pip freeze > requirements.txt  # Atualiza com os pacotes exatos do venv
 ```
+4. Ative o ngrok e inicie a ferramenta:
+```bash
+ngrok start --all
+python3 FirePrecision-V1.py
+```
 
 ## Obs Carregue seu token pessoal do ngrok em um .env
